@@ -13,130 +13,24 @@
         <p class="kicker">Bilder &amp; Videos</p>
         <h1>Galerie</h1>
       </div>
-      <p class="intro">
-        Du entscheidest, wann es weitergeht. Mit <kbd>Enter</kbd> zum nächsten Bild oder Video.
-      </p>
+      <div class="kopf-rechts">
+        <p class="intro">
+          Du entscheidest, wann es weitergeht. Mit <kbd>Enter</kbd> zum nächsten Bild oder Video.
+        </p>
+        <button id="bearbeiten" class="bearbeiten-knopf" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+          </svg>
+          Bearbeiten
+        </button>
+      </div>
     </header>
 
-    <section class="buehne" id="buehne" aria-label="Bilder- und Video-Galerie">
-      <figure class="slide ist-aktiv" data-typ="bild">
-        <div class="medium">
-          <img
-            src="media/bild-1.jpg"
-            alt="Grafik 1: grüner Farbverlauf mit weissem Rahmen und der Zahl 1."
-            fetchpriority="high"
-          />
-        </div>
-        <figcaption>
-          <span class="nummer">01</span>
-          <span class="titel">Bild 1</span>
-          <span class="art">Grafik</span>
-        </figcaption>
-      </figure>
-
-      <figure class="slide" data-typ="video" aria-hidden="true" inert>
-        <div class="medium">
-          <video
-            src="media/blume.mp4"
-            poster="media/blume-poster.png"
-            controls
-            playsinline
-            preload="metadata"
-            aria-label="Video: rote Blüte in Nahaufnahme"
-          ></video>
-        </div>
-        <figcaption>
-          <span class="nummer">02</span>
-          <span class="titel">Video 1</span>
-          <span class="art">Blüte</span>
-        </figcaption>
-      </figure>
-
-      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
-        <div class="medium">
-          <img
-            src="media/bild-2.jpg"
-            alt="Grafik 2: olivgrüner Farbverlauf im Hochformat mit weissem Rahmen und der Zahl 2."
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <figcaption>
-          <span class="nummer">03</span>
-          <span class="titel">Bild 2</span>
-          <span class="art">Grafik</span>
-        </figcaption>
-      </figure>
-
-      <figure class="slide" data-typ="video" aria-hidden="true" inert>
-        <div class="medium">
-          <video
-            src="media/freitag.mp4"
-            poster="media/freitag-poster.png"
-            controls
-            playsinline
-            preload="metadata"
-            aria-label="Video: Schwarz-Weiss-Filmszene mit mehreren Personen"
-          ></video>
-        </div>
-        <figcaption>
-          <span class="nummer">04</span>
-          <span class="titel">Video 2</span>
-          <span class="art">Film</span>
-        </figcaption>
-      </figure>
-
-      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
-        <div class="medium">
-          <img
-            src="media/bild-3.jpg"
-            alt="Grafik 3: blauer Farbverlauf mit weissem Rahmen und der Zahl 3."
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <figcaption>
-          <span class="nummer">05</span>
-          <span class="titel">Bild 3</span>
-          <span class="art">Grafik</span>
-        </figcaption>
-      </figure>
-
-      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
-        <div class="medium">
-          <img
-            src="media/bild-4.jpg"
-            alt="Grafik 4: roter Farbverlauf im Hochformat mit weissem Rahmen und der Zahl 4."
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <figcaption>
-          <span class="nummer">06</span>
-          <span class="titel">Bild 4</span>
-          <span class="art">Grafik</span>
-        </figcaption>
-      </figure>
-
-      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
-        <div class="medium">
-          <img
-            src="media/bild-5.jpg"
-            alt="Grafik 5: grüner Farbverlauf mit weissem Rahmen und der Zahl 5."
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <figcaption>
-          <span class="nummer">07</span>
-          <span class="titel">Bild 5</span>
-          <span class="art">Grafik</span>
-        </figcaption>
-      </figure>
-    </section>
+    <section class="buehne" id="buehne" aria-label="Bilder- und Video-Galerie"></section>
 
     <div class="fortschritt" aria-hidden="true">
-      <span id="fortschritt-balken" style="width: 14.2857%"></span>
+      <span id="fortschritt-balken"></span>
     </div>
 
     <div class="steuerung">
@@ -145,7 +39,7 @@
       </button>
 
       <p class="zaehler">
-        <strong id="aktuell">01</strong> / <span id="gesamt">07</span>
+        <strong id="aktuell">01</strong> / <span id="gesamt">00</span>
       </p>
 
       <button id="weiter" class="knopf knopf-weiter" type="button">
@@ -173,6 +67,44 @@
       Der Link öffnet die Galerie direkt beim aktuellen Bild oder Video.
     </p>
   </main>
+
+  <!-- Editor: nur lokal im Browser, keine Server-Speicherung -->
+  <div class="editor" id="editor" hidden>
+    <div class="editor-panel" role="dialog" aria-modal="true" aria-labelledby="editor-titel">
+      <header class="editor-kopf">
+        <div>
+          <p class="kicker">Lokal bearbeiten</p>
+          <h2 id="editor-titel">Galerie bearbeiten</h2>
+        </div>
+        <button id="editor-schliessen" class="knopf" type="button">Fertig</button>
+      </header>
+
+      <div class="editor-aktionen">
+        <button id="dateien-hinzufuegen" class="knopf knopf-weiter" type="button">
+          Dateien hinzufügen
+        </button>
+        <input id="datei-input" type="file" accept="image/*,video/*" multiple hidden />
+        <button id="zuruecksetzen" class="knopf" type="button">Zurücksetzen</button>
+        <button id="exportieren" class="knopf" type="button">Als ZIP exportieren</button>
+        <button id="json-exportieren" class="knopf" type="button">Nur galerie.json</button>
+      </div>
+
+      <p class="editor-hinweis">
+        Bilder und Videos hierher ziehen oder über „Dateien hinzufügen“ auswählen.
+        Die Reihenfolge änderst du am Griff. Alles wird nur in diesem Browser gespeichert.
+        Der ZIP-Export enthält die aktuelle Reihenfolge, alle Medien und die Dateien zum
+        Veröffentlichen.
+      </p>
+
+      <ul class="editor-liste" id="editor-liste"></ul>
+
+      <p class="editor-status" id="editor-status" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="drop-overlay" id="drop-overlay" hidden>
+    <div>Dateien hier ablegen</div>
+  </div>
 
   <script src="galerie.js"></script>
 </body>

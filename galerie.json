@@ -1,0 +1,47 @@
+[
+  {
+    "id": "video-freitag",
+    "typ": "video",
+    "src": "media/freitag.mp4",
+    "poster": "media/freitag-poster.png",
+    "titel": "Video 2",
+    "art": "Film",
+    "alt": "Video: Schwarz-Weiss-Filmszene mit mehreren Personen."
+  },
+  {
+    "id": "video-blume",
+    "typ": "video",
+    "src": "media/blume.mp4",
+    "poster": "media/blume-poster.png",
+    "titel": "Video 1",
+    "art": "Blüte",
+    "alt": "Video: rote Blüte in Nahaufnahme."
+  },
+  {
+    "id": "294220b6-21b9-4b64-8b48-6a3e47a294c3",
+    "typ": "bild",
+    "src": "media/WhatsApp_Image_2026-09-12_at_12.35.01.jpeg",
+    "poster": "",
+    "titel": "WhatsApp Image 2026-09-12 at 12.35.01",
+    "art": "Bild",
+    "alt": "WhatsApp Image 2026-09-12 at 12.35.01.jpeg"
+  },
+  {
+    "id": "a8432c0d-4013-4ab1-aad6-59ce8f44117c",
+    "typ": "bild",
+    "src": "media/ahmed-hossam-mEx29NUQPy4-unsplash.png",
+    "poster": "",
+    "titel": "ahmed-hossam-mEx29NUQPy4-unsplash",
+    "art": "Bild",
+    "alt": "ahmed-hossam-mEx29NUQPy4-unsplash.png"
+  },
+  {
+    "id": "d37562b0-f635-4108-b5ec-d583265c72db",
+    "typ": "bild",
+    "src": "media/WhatsApp_Image_2026-09-12_at_12.36.42_2_.jpeg",
+    "poster": "",
+    "titel": "WhatsApp Image 2026-09-12 at 12.36.42 (2)",
+    "art": "Bild",
+    "alt": "WhatsApp Image 2026-09-12 at 12.36.42 (2).jpeg"
+  }
+]
