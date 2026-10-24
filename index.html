@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie – Bilder und Videos</title>
+  <link rel="stylesheet" href="galerie.css" />
+</head>
+<body>
+  <main class="galerie">
+    <header class="kopf">
+      <div>
+        <p class="kicker">Bilder &amp; Videos</p>
+        <h1>Galerie</h1>
+      </div>
+      <p class="intro">
+        Du entscheidest, wann es weitergeht. Mit <kbd>Enter</kbd> zum nächsten Bild oder Video.
+      </p>
+    </header>
+
+    <section class="buehne" id="buehne" aria-label="Bilder- und Video-Galerie">
+      <figure class="slide ist-aktiv" data-typ="bild">
+        <div class="medium">
+          <img
+            src="media/bild-1.jpg"
+            alt="Grafik 1: grüner Farbverlauf mit weissem Rahmen und der Zahl 1."
+            fetchpriority="high"
+          />
+        </div>
+        <figcaption>
+          <span class="nummer">01</span>
+          <span class="titel">Bild 1</span>
+          <span class="art">Grafik</span>
+        </figcaption>
+      </figure>
+
+      <figure class="slide" data-typ="video" aria-hidden="true" inert>
+        <div class="medium">
+          <video
+            src="media/blume.mp4"
+            poster="media/blume-poster.png"
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Video: rote Blüte in Nahaufnahme"
+          ></video>
+        </div>
+        <figcaption>
+          <span class="nummer">02</span>
+          <span class="titel">Video 1</span>
+          <span class="art">Blüte</span>
+        </figcaption>
+      </figure>
+
+      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
+        <div class="medium">
+          <img
+            src="media/bild-2.jpg"
+            alt="Grafik 2: olivgrüner Farbverlauf im Hochformat mit weissem Rahmen und der Zahl 2."
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>
+          <span class="nummer">03</span>
+          <span class="titel">Bild 2</span>
+          <span class="art">Grafik</span>
+        </figcaption>
+      </figure>
+
+      <figure class="slide" data-typ="video" aria-hidden="true" inert>
+        <div class="medium">
+          <video
+            src="media/freitag.mp4"
+            poster="media/freitag-poster.png"
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Video: Schwarz-Weiss-Filmszene mit mehreren Personen"
+          ></video>
+        </div>
+        <figcaption>
+          <span class="nummer">04</span>
+          <span class="titel">Video 2</span>
+          <span class="art">Film</span>
+        </figcaption>
+      </figure>
+
+      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
+        <div class="medium">
+          <img
+            src="media/bild-3.jpg"
+            alt="Grafik 3: blauer Farbverlauf mit weissem Rahmen und der Zahl 3."
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>
+          <span class="nummer">05</span>
+          <span class="titel">Bild 3</span>
+          <span class="art">Grafik</span>
+        </figcaption>
+      </figure>
+
+      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
+        <div class="medium">
+          <img
+            src="media/bild-4.jpg"
+            alt="Grafik 4: roter Farbverlauf im Hochformat mit weissem Rahmen und der Zahl 4."
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>
+          <span class="nummer">06</span>
+          <span class="titel">Bild 4</span>
+          <span class="art">Grafik</span>
+        </figcaption>
+      </figure>
+
+      <figure class="slide" data-typ="bild" aria-hidden="true" inert>
+        <div class="medium">
+          <img
+            src="media/bild-5.jpg"
+            alt="Grafik 5: grüner Farbverlauf mit weissem Rahmen und der Zahl 5."
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>
+          <span class="nummer">07</span>
+          <span class="titel">Bild 5</span>
+          <span class="art">Grafik</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="fortschritt" aria-hidden="true">
+      <span id="fortschritt-balken" style="width: 14.2857%"></span>
+    </div>
+
+    <div class="steuerung">
+      <button id="zurueck" class="knopf" type="button" aria-label="Vorheriges Medium">
+        ←
+      </button>
+
+      <p class="zaehler">
+        <strong id="aktuell">01</strong> / <span id="gesamt">07</span>
+      </p>
+
+      <button id="weiter" class="knopf knopf-weiter" type="button">
+        <span class="weiter-text">Weiter</span>
+        <kbd>Enter</kbd>
+      </button>
+    </div>
+
+    <div class="fuss">
+      <p class="hinweis">
+        <kbd>Enter</kbd> weiter · <kbd>←</kbd> zurück
+      </p>
+
+      <button id="teilen" class="teilen" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.2" />
+          <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.2" />
+        </svg>
+        Link teilen
+      </button>
+    </div>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <p class="teilen-hinweis">
+      Der Link öffnet die Galerie direkt beim aktuellen Bild oder Video.
+    </p>
+  </main>
+
+  <script src="galerie.js"></script>
+</body>
+</html>
