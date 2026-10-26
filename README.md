@@ -30,6 +30,7 @@ Im Vollbild bleiben alle Steuerungen verfügbar:
 3. Die Reihenfolge am Griff **⋮⋮** per Ziehen ändern.
 4. **„Fertig“** – gespeichert wird nur in diesem Browser (IndexedDB + localStorage).
 5. **„Zurücksetzen“** stellt die veröffentlichte Version wieder her.
+6. Bei Videos kannst du im Editor **„Loop“** aktivieren – jedes Video einzeln.
 
 Das ist eine lokale Bearbeitung: Andere Besucher sehen die Änderungen nicht, bis die
 Galerie exportiert und veröffentlicht wird.

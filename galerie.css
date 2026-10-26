@@ -675,6 +675,24 @@ body.editor-offen {
   white-space: nowrap;
 }
 
+.loop-schalter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.loop-schalter input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 .editor-loeschen {
   appearance: none;
   width: 36px;

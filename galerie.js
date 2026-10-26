@@ -202,6 +202,7 @@
       const figure = document.createElement("figure");
       figure.className = "slide" + (i === index ? " ist-aktiv" : "");
       figure.dataset.typ = item.typ;
+      figure.dataset.id = item.id;
       figure.setAttribute("aria-hidden", String(i !== index));
       figure.inert = i !== index;
 
@@ -219,6 +220,7 @@
         if (item.poster) video.poster = item.poster;
         video.controls = true;
         video.playsInline = true;
+        video.loop = Boolean(item.loop);
         video.preload = "metadata";
         video.setAttribute("aria-label", item.alt || item.titel || "Video");
         medium.appendChild(video);
@@ -244,7 +246,9 @@
 
       const art = document.createElement("span");
       art.className = "art";
-      art.textContent = item.art || (item.typ === "video" ? "Video" : "Bild");
+      const artText = item.art || (item.typ === "video" ? "Video" : "Bild");
+      art.textContent =
+        item.typ === "video" && item.loop ? `${artText} · Loop` : artText;
 
       caption.append(nummer, titel, art);
       figure.append(medium, caption);
@@ -302,6 +306,36 @@
         (item.fileName ? " · " + item.fileName : "");
 
       info.append(strong, small);
+
+      if (item.typ === "video") {
+        const loopLabel = document.createElement("label");
+        loopLabel.className = "loop-schalter";
+
+        const loopCheckbox = document.createElement("input");
+        loopCheckbox.type = "checkbox";
+        loopCheckbox.checked = Boolean(item.loop);
+
+        loopCheckbox.addEventListener("change", () => {
+          item.loop = loopCheckbox.checked;
+          saveState();
+
+          const slide = buehne.querySelector(
+            `.slide[data-id="${CSS.escape(item.id)}"]`
+          );
+          const video = slide?.querySelector("video");
+          if (video) video.loop = loopCheckbox.checked;
+
+          setEditorStatus(
+            loopCheckbox.checked ? "Loop aktiviert." : "Loop deaktiviert."
+          );
+        });
+
+        const loopText = document.createElement("span");
+        loopText.textContent = "Loop";
+
+        loopLabel.append(loopCheckbox, loopText);
+        info.append(loopLabel);
+      }
 
       const loeschen = document.createElement("button");
       loeschen.type = "button";
@@ -616,7 +650,8 @@
         fileName: file.name,
         titel,
         art: istVideo ? "Video" : "Bild",
-        alt: file.name
+        alt: file.name,
+        loop: false
       });
     }
 
@@ -835,6 +870,10 @@
         art: item.art || "",
         alt: item.alt || ""
       };
+
+      if (item.typ === "video") {
+        exportiert.loop = Boolean(item.loop);
+      }
 
       if (item.blobKey) {
         const name = eindeutigerName(

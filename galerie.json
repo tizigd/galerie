@@ -6,7 +6,8 @@
     "poster": "media/freitag-poster.png",
     "titel": "Video 2",
     "art": "Film",
-    "alt": "Video: Schwarz-Weiss-Filmszene mit mehreren Personen."
+    "alt": "Video: Schwarz-Weiss-Filmszene mit mehreren Personen.",
+    "loop": false
   },
   {
     "id": "video-blume",
@@ -15,7 +16,8 @@
     "poster": "media/blume-poster.png",
     "titel": "Video 1",
     "art": "Blüte",
-    "alt": "Video: rote Blüte in Nahaufnahme."
+    "alt": "Video: rote Blüte in Nahaufnahme.",
+    "loop": false
   },
   {
     "id": "294220b6-21b9-4b64-8b48-6a3e47a294c3",
