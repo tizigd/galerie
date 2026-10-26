@@ -8,8 +8,20 @@ weitergeht.
 - **Enter**: nächstes Bild oder Video
 - **←** / **→**: zurück / weiter
 - **Weiter**-Button: dasselbe wie Enter
+- **F** oder Button oben rechts: Vollbild
+- **Wischen** (Touch): zurück / weiter
 - **Link teilen**: kopiert die aktuelle Adresse inklusive Medium, z. B. `...#3`
   (oder öffnet auf dem Handy den System-Share-Dialog)
+
+## Vollbild
+
+Im Vollbild bleiben alle Steuerungen verfügbar:
+
+- **Enter** oder **→**: nächstes Medium
+- **←**: zurück
+- **Buttons** am unteren Rand: zurück / weiter
+- **Wischen**: zurück / weiter
+- **Esc**, **F** oder der Button oben rechts: Vollbild beenden
 
 ## Bearbeiten (lokal im Browser)
 

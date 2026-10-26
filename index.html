@@ -27,30 +27,51 @@
       </div>
     </header>
 
-    <section class="buehne" id="buehne" aria-label="Bilder- und Video-Galerie"></section>
-
-    <div class="fortschritt" aria-hidden="true">
-      <span id="fortschritt-balken"></span>
-    </div>
-
-    <div class="steuerung">
-      <button id="zurueck" class="knopf" type="button" aria-label="Vorheriges Medium">
-        ←
+    <div class="buehne-bereich" id="buehne-bereich" tabindex="-1">
+      <button id="vollbild" class="vollbild-knopf" type="button" aria-label="Vollbild" title="Vollbild (F)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <g class="vollbild-auf">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+            <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+            <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
+            <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+          </g>
+          <g class="vollbild-zu">
+            <path d="M8 3v3a2 2 0 0 1-2 2H3" />
+            <path d="M16 3v3a2 2 0 0 0 2 2h3" />
+            <path d="M8 21v-3a2 2 0 0 0-2-2H3" />
+            <path d="M16 21v-3a2 2 0 0 1 2-2h3" />
+          </g>
+        </svg>
       </button>
 
-      <p class="zaehler">
-        <strong id="aktuell">01</strong> / <span id="gesamt">00</span>
-      </p>
+      <section class="buehne" id="buehne" aria-label="Bilder- und Video-Galerie"></section>
 
-      <button id="weiter" class="knopf knopf-weiter" type="button">
-        <span class="weiter-text">Weiter</span>
-        <kbd>Enter</kbd>
-      </button>
+      <div class="fortschritt" aria-hidden="true">
+        <span id="fortschritt-balken"></span>
+      </div>
+
+      <div class="steuerung">
+        <button id="zurueck" class="knopf" type="button" aria-label="Vorheriges Medium">
+          ←
+        </button>
+
+        <p class="zaehler">
+          <strong id="aktuell">01</strong> / <span id="gesamt">00</span>
+        </p>
+
+        <span id="vollbild-titel" class="vollbild-titel"></span>
+
+        <button id="weiter" class="knopf knopf-weiter" type="button">
+          <span class="weiter-text">Weiter</span>
+          <kbd>Enter</kbd>
+        </button>
+      </div>
     </div>
 
     <div class="fuss">
       <p class="hinweis">
-        <kbd>Enter</kbd> weiter · <kbd>←</kbd> zurück
+        <kbd>Enter</kbd> weiter · <kbd>←</kbd> zurück · <kbd>F</kbd> Vollbild
       </p>
 
       <button id="teilen" class="teilen" type="button">

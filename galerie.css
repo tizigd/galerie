@@ -151,6 +151,64 @@ body {
   border-radius: var(--radius);
   background: #000;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  touch-action: pan-y;
+}
+
+.buehne-bereich {
+  position: relative;
+}
+
+.buehne-bereich:focus {
+  outline: none;
+}
+
+.vollbild-knopf {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.vollbild-knopf:hover {
+  border-color: var(--accent);
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.vollbild-knopf:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.vollbild-knopf svg {
+  width: 18px;
+  height: 18px;
+}
+
+.vollbild-zu {
+  display: none;
+}
+
+.ist-vollbild .vollbild-auf {
+  display: none;
+}
+
+.ist-vollbild .vollbild-zu {
+  display: block;
+}
+
+.vollbild-titel {
+  display: none;
 }
 
 .slide {
@@ -261,6 +319,86 @@ body {
   align-items: center;
   gap: 12px;
   margin-top: 18px;
+}
+
+/* ------------------------------------------------------------
+   Vollbild
+   ------------------------------------------------------------ */
+
+.buehne-bereich:fullscreen,
+.buehne-bereich.ist-vollbild {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  background: #000;
+}
+
+body.vollbild-offen {
+  overflow: hidden;
+}
+
+.buehne-bereich:fullscreen .buehne,
+.buehne-bereich.ist-vollbild .buehne {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.buehne-bereich:fullscreen .vollbild-knopf,
+.buehne-bereich.ist-vollbild .vollbild-knopf {
+  top: 20px;
+  right: 20px;
+}
+
+.buehne-bereich:fullscreen .fortschritt,
+.buehne-bereich.ist-vollbild .fortschritt {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 92px;
+  z-index: 10;
+  margin: 0;
+}
+
+.buehne-bereich:fullscreen .steuerung,
+.buehne-bereich.ist-vollbild .steuerung {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  transform: translateX(-50%);
+}
+
+.buehne-bereich:fullscreen .slide figcaption,
+.buehne-bereich.ist-vollbild .slide figcaption {
+  display: none;
+}
+
+.buehne-bereich:fullscreen .vollbild-titel,
+.buehne-bereich.ist-vollbild .vollbild-titel {
+  display: inline;
+  max-width: 220px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .knopf {
@@ -675,6 +813,35 @@ body.editor-offen {
 
   .drop-overlay {
     font-size: 18px;
+  }
+
+  .vollbild-knopf {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .buehne-bereich:fullscreen .steuerung,
+  .buehne-bereich.ist-vollbild .steuerung {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    justify-content: space-between;
+    border-radius: 14px;
+    transform: none;
+  }
+
+  .buehne-bereich:fullscreen .fortschritt,
+  .buehne-bereich.ist-vollbild .fortschritt {
+    left: 12px;
+    right: 12px;
+    bottom: 80px;
+  }
+
+  .buehne-bereich:fullscreen .vollbild-titel,
+  .buehne-bereich.ist-vollbild .vollbild-titel {
+    display: none;
   }
 }
 

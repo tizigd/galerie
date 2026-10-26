@@ -1,0 +1,20 @@
+GALERIE – LINK ZUM TEILEN
+=========================
+
+Dauerhafter Link (GitHub Pages):
+https://tizigd.github.io/galerie/
+
+QR-Code für das Handy:
+media/qr-link.png
+
+Der Link bleibt dauerhaft und funktioniert auch, wenn dieser Mac aus ist.
+
+GitHub-Repository:
+https://github.com/tizigd/galerie
+
+Lokal testen:
+cd galerie
+python3 -m http.server 8000
+→ http://localhost:8000/
+
+Stand: 24.10.2026

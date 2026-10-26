@@ -6,6 +6,9 @@
      ------------------------------------------------------------ */
 
   const buehne = document.getElementById("buehne");
+  const buehneBereich = document.getElementById("buehne-bereich");
+  const vollbildBtn = document.getElementById("vollbild");
+  const vollbildTitel = document.getElementById("vollbild-titel");
   const aktuellEl = document.getElementById("aktuell");
   const gesamtEl = document.getElementById("gesamt");
   const balken = document.getElementById("fortschritt-balken");
@@ -40,8 +43,10 @@
   let runtimeItems = [];
   let index = 0;
   let editorOpen = false;
+  let pseudoVollbild = false;
   let dragItem = null;
   let dragTiefe = 0;
+  let swipeStart = null;
 
   const objectUrls = new Set();
   let dbPromise = null;
@@ -320,6 +325,7 @@
       gesamtEl.textContent = "00";
       balken.style.width = "0%";
       weiterText.textContent = "Weiter";
+      if (vollbildTitel) vollbildTitel.textContent = "";
       return;
     }
 
@@ -364,6 +370,10 @@
     const art = item.typ === "video" ? "Video" : "Bild";
     setStatus(`${item.titel || art}, Medium ${index + 1} von ${runtimeItems.length}`);
 
+    if (vollbildTitel) {
+      vollbildTitel.textContent = item.titel || art;
+    }
+
     if (updateHash) {
       try {
         history.replaceState(null, "", `#${index + 1}`);
@@ -371,10 +381,90 @@
         window.location.hash = String(index + 1);
       }
     }
+
+    if (vollbildAktiv()) {
+      buehneBereich.focus({ preventScroll: true });
+    }
   }
 
   const weiter = () => setzeSlide(index + 1);
   const zurueck = () => setzeSlide(index - 1);
+
+  /* ------------------------------------------------------------
+     Vollbild
+     ------------------------------------------------------------ */
+
+  function vollbildElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+
+  function vollbildAktiv() {
+    return vollbildElement() === buehneBereich || pseudoVollbild;
+  }
+
+  function updateVollbildZustand() {
+    if (vollbildElement() === buehneBereich) {
+      pseudoVollbild = false;
+    }
+
+    const aktiv = vollbildAktiv();
+
+    buehneBereich.classList.toggle("ist-vollbild", aktiv);
+    document.body.classList.toggle("vollbild-offen", pseudoVollbild);
+    vollbildBtn.setAttribute("aria-label", aktiv ? "Vollbild verlassen" : "Vollbild");
+    vollbildBtn.title = aktiv ? "Vollbild verlassen (Esc)" : "Vollbild (F)";
+
+    if (aktiv) {
+      buehneBereich.focus({ preventScroll: true });
+      setStatus("Vollbild aktiv");
+    } else {
+      vollbildBtn.focus({ preventScroll: true });
+      setStatus("Vollbild beendet");
+    }
+  }
+
+  async function vollbildUmschalten() {
+    if (vollbildElement() === buehneBereich) {
+      const beenden = document.exitFullscreen || document.webkitExitFullscreen;
+      if (beenden) {
+        try {
+          await beenden.call(document);
+        } catch (error) {
+          /* ignorieren */
+        }
+      }
+      return;
+    }
+
+    if (pseudoVollbild) {
+      pseudoVollbild = false;
+      updateVollbildZustand();
+      return;
+    }
+
+    const starten =
+      buehneBereich.requestFullscreen || buehneBereich.webkitRequestFullscreen;
+
+    if (starten) {
+      try {
+        const ergebnis = starten.call(buehneBereich);
+        if (ergebnis && typeof ergebnis.catch === "function") {
+          ergebnis.catch(() => {});
+        }
+      } catch (error) {
+        /* Fallback: CSS-Vollbild */
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 250));
+
+      if (vollbildElement() === buehneBereich) {
+        return;
+      }
+    }
+
+    pseudoVollbild = true;
+    updateVollbildZustand();
+  }
 
   async function refresh() {
     const aktiveId = runtimeItems[index]?.id;
@@ -920,6 +1010,9 @@
   editorSchliessen.addEventListener("click", closeEditor);
   weiterBtn.addEventListener("click", weiter);
   zurueckBtn.addEventListener("click", zurueck);
+  vollbildBtn.addEventListener("click", vollbildUmschalten);
+  document.addEventListener("fullscreenchange", updateVollbildZustand);
+  document.addEventListener("webkitfullscreenchange", updateVollbildZustand);
 
   editor.addEventListener("click", (event) => {
     if (event.target === editor) closeEditor();
@@ -982,10 +1075,54 @@
     }
   });
 
+  /* Wischen (Touch/Stift) */
+
+  buehne.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse") return;
+
+    const ziel = event.target;
+    if (!(ziel instanceof Element) || ziel.closest("video, button, a")) return;
+
+    swipeStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
+
+    try {
+      buehne.setPointerCapture(event.pointerId);
+    } catch (error) {
+      /* ignorieren */
+    }
+  });
+
+  buehne.addEventListener("pointerup", (event) => {
+    if (!swipeStart || swipeStart.id !== event.pointerId) return;
+
+    const dx = event.clientX - swipeStart.x;
+    const dy = event.clientY - swipeStart.y;
+    swipeStart = null;
+
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) {
+        weiter();
+      } else {
+        zurueck();
+      }
+    }
+  });
+
+  buehne.addEventListener("pointercancel", () => {
+    swipeStart = null;
+  });
+
   /* Tastatur */
 
   document.addEventListener("keydown", (event) => {
     if (event.repeat) return;
+
+    if (pseudoVollbild && event.key === "Escape") {
+      event.preventDefault();
+      pseudoVollbild = false;
+      updateVollbildZustand();
+      return;
+    }
 
     if (editorOpen) {
       if (event.key === "Escape") closeEditor();
@@ -993,6 +1130,16 @@
     }
 
     const ziel = event.target;
+    const istEingabe =
+      ziel instanceof Element &&
+      ziel.closest("input, textarea, select") !== null;
+
+    if (!istEingabe && (event.key === "f" || event.key === "F")) {
+      event.preventDefault();
+      vollbildUmschalten();
+      return;
+    }
+
     const istBedienelement =
       ziel instanceof Element &&
       ziel.closest("button, a, input, textarea, select") !== null;
