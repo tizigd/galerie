@@ -354,7 +354,7 @@
      Slideshow
      ------------------------------------------------------------ */
 
-  function setzeSlide(neu, { updateHash = true, hideControls = false } = {}) {
+  function setzeSlide(neu, { updateHash = true } = {}) {
     if (!runtimeItems.length) {
       index = 0;
       aktuellEl.textContent = "00";
@@ -420,15 +420,12 @@
 
     if (vollbildAktiv()) {
       buehneBereich.focus({ preventScroll: true });
-    }
-
-    if (hideControls) {
       bedienungVerstecken();
     }
   }
 
-  const weiter = (optionen) => setzeSlide(index + 1, optionen);
-  const zurueck = (optionen) => setzeSlide(index - 1, optionen);
+  const weiter = () => setzeSlide(index + 1);
+  const zurueck = () => setzeSlide(index - 1);
 
   /* ------------------------------------------------------------
      Vollbild

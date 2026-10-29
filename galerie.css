@@ -439,13 +439,6 @@ body.vollbild-offen {
     visibility: visible;
     pointer-events: auto;
   }
-
-  .buehne-bereich:fullscreen .steuerung:focus-within,
-  .buehne-bereich.ist-vollbild .steuerung:focus-within {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
 }
 
 .knopf {
