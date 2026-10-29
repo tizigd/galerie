@@ -452,6 +452,7 @@
       buehneBereich.focus({ preventScroll: true });
       setStatus("Vollbild aktiv");
     } else {
+      buehneBereich.classList.remove("bedienung-sichtbar");
       vollbildBtn.focus({ preventScroll: true });
       setStatus("Vollbild beendet");
     }
@@ -1166,6 +1167,19 @@
 
   buehne.addEventListener("pointercancel", () => {
     swipeStart = null;
+  });
+
+  /* Steuerleisten im Vollbild nur am unteren Rand zeigen */
+  buehneBereich.addEventListener("mousemove", (event) => {
+    if (!vollbildAktiv()) return;
+
+    const rect = buehneBereich.getBoundingClientRect();
+    const naheUnten = event.clientY > rect.bottom - 140;
+    buehneBereich.classList.toggle("bedienung-sichtbar", naheUnten);
+  });
+
+  buehneBereich.addEventListener("mouseleave", () => {
+    buehneBereich.classList.remove("bedienung-sichtbar");
   });
 
   /* Tastatur */

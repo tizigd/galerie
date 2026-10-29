@@ -401,6 +401,50 @@ body.vollbild-offen {
   white-space: nowrap;
 }
 
+/* Medien im Vollbild maximieren – ohne Beschnitt */
+.buehne-bereich:fullscreen .medium,
+.buehne-bereich.ist-vollbild .medium {
+  padding: 0;
+}
+
+.buehne-bereich:fullscreen .medium img,
+.buehne-bereich:fullscreen .medium video,
+.buehne-bereich.ist-vollbild .medium img,
+.buehne-bereich.ist-vollbild .medium video {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+/* Steuerleisten im Vollbild nur am unteren Rand einblenden */
+@media (hover: hover) {
+  .buehne-bereich:fullscreen .steuerung,
+  .buehne-bereich.ist-vollbild .steuerung,
+  .buehne-bereich:fullscreen .fortschritt,
+  .buehne-bereich.ist-vollbild .fortschritt {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .buehne-bereich:fullscreen.bedienung-sichtbar .steuerung,
+  .buehne-bereich.ist-vollbild.bedienung-sichtbar .steuerung,
+  .buehne-bereich:fullscreen.bedienung-sichtbar .fortschritt,
+  .buehne-bereich.ist-vollbild.bedienung-sichtbar .fortschritt {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .buehne-bereich:fullscreen .steuerung:focus-within,
+  .buehne-bereich.ist-vollbild .steuerung:focus-within {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 .knopf {
   appearance: none;
   display: inline-flex;
