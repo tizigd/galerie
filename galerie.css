@@ -426,6 +426,7 @@ body.vollbild-offen {
   .buehne-bereich:fullscreen .fortschritt,
   .buehne-bereich.ist-vollbild .fortschritt {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transition: opacity 0.2s ease;
   }
@@ -435,12 +436,14 @@ body.vollbild-offen {
   .buehne-bereich:fullscreen.bedienung-sichtbar .fortschritt,
   .buehne-bereich.ist-vollbild.bedienung-sichtbar .fortschritt {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
   }
 
   .buehne-bereich:fullscreen .steuerung:focus-within,
   .buehne-bereich.ist-vollbild .steuerung:focus-within {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
   }
 }
