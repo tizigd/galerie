@@ -666,17 +666,34 @@
 
     const item = stateItems[idx];
 
-    if (item.blobKey) {
-      try { await idbDelete(item.blobKey); } catch (error) {}
-    }
-    if (item.posterKey) {
-      try { await idbDelete(item.posterKey); } catch (error) {}
-    }
-
+    // Sofort aus der Liste entfernen, damit das X sichtbar reagiert.
     stateItems.splice(idx, 1);
     saveState();
-    await refresh();
+    renderEditor();
     setEditorStatus("Medium gelöscht.");
+
+    try {
+      await refresh();
+    } catch (error) {
+      setEditorStatus("Medium gelöscht, Ansicht konnte nicht aktualisiert werden.");
+    }
+
+    // Grosse Videos/Blobs erst danach im Hintergrund aufräumen.
+    if (item.blobKey) {
+      try {
+        await idbDelete(item.blobKey);
+      } catch (error) {
+        /* ignorieren */
+      }
+    }
+
+    if (item.posterKey) {
+      try {
+        await idbDelete(item.posterKey);
+      } catch (error) {
+        /* ignorieren */
+      }
+    }
   }
 
   async function resetAll() {
