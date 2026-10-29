@@ -1,49 +1,206 @@
 [
   {
-    "id": "video-freitag",
+    "id": "9d1419f2-999e-490a-adc1-f3c268794f11",
     "typ": "video",
-    "src": "media/freitag.mp4",
-    "poster": "media/freitag-poster.png",
-    "titel": "Video 2",
-    "art": "Film",
-    "alt": "Video: Schwarz-Weiss-Filmszene mit mehreren Personen.",
-    "loop": false
+    "src": "media/leben/01-geburt-v3.mp4",
+    "poster": "media/leben/01-geburt-v3-poster.jpg",
+    "titel": "Geburt V3",
+    "art": "",
+    "alt": "Geburt V3.mp4",
+    "loop": true
   },
   {
-    "id": "video-blume",
+    "id": "2fd3569e-8cf2-4b89-bd41-f4dad90ee194",
     "typ": "video",
-    "src": "media/blume.mp4",
-    "poster": "media/blume-poster.png",
-    "titel": "Video 1",
-    "art": "Blüte",
-    "alt": "Video: rote Blüte in Nahaufnahme.",
-    "loop": false
+    "src": "media/leben/02-baer.mp4",
+    "poster": "media/leben/02-baer-poster.jpg",
+    "titel": "Bär",
+    "art": "",
+    "alt": "Bär.mp4",
+    "loop": true
   },
   {
-    "id": "294220b6-21b9-4b64-8b48-6a3e47a294c3",
+    "id": "dacae738-576f-4297-b288-f6204169fd85",
+    "typ": "video",
+    "src": "media/leben/03-img-0478.mp4",
+    "poster": "media/leben/03-img-0478-poster.jpg",
+    "titel": "IMG_0478 2",
+    "art": "",
+    "alt": "IMG_0478 2.mp4",
+    "loop": true
+  },
+  {
+    "id": "b1a7d908-c9d7-41e5-a63e-0217d56dc22b",
+    "typ": "video",
+    "src": "media/leben/04-der-dinosaurier.mp4",
+    "poster": "media/leben/04-der-dinosaurier-poster.jpg",
+    "titel": "Der Dinosaurier lauft von link nach rechts In der Bildmitte verwandelt er sich wahrend dem gehen  in einen grunen Comic-Dinosaurier",
+    "art": "",
+    "alt": "Der Dinosaurier lauft von link nach rechts In der Bildmitte verwandelt er sich wahrend dem gehen  in einen grunen Comic-Dinosaurier.mp4",
+    "loop": true
+  },
+  {
+    "id": "4f953972-c5f0-45ab-b64c-4bd21fe050e7",
     "typ": "bild",
-    "src": "media/WhatsApp_Image_2026-09-12_at_12.35.01.jpeg",
+    "src": "media/leben/05-emojis.jpg",
+    "poster": "",
+    "titel": "Emojis",
+    "art": "",
+    "alt": "Emojis.jpg"
+  },
+  {
+    "id": "f396cf0d-8d5e-4ded-9832-708e23c557cb",
+    "typ": "bild",
+    "src": "media/leben/06-mamapapa.jpg",
+    "poster": "",
+    "titel": "MamaPapa",
+    "art": "",
+    "alt": "MamaPapa.jpg"
+  },
+  {
+    "id": "7a4631fa-3b9e-4f14-88c1-07ca396d19f2",
+    "typ": "video",
+    "src": "media/leben/07-die-figur.mp4",
+    "poster": "media/leben/07-die-figur-poster.jpg",
+    "titel": "Die Figur lauft von links nach rechts In der Mitte des Bildes bleibt sie stehen und nimmt einen zug von der Zigarette Dann lauft sie weiter",
+    "art": "",
+    "alt": "Die Figur lauft von links nach rechts In der Mitte des Bildes bleibt sie stehen und nimmt einen zug von der Zigarette Dann lauft sie weiter.mp4",
+    "loop": true
+  },
+  {
+    "id": "5ef028af-8dfd-4bda-a9be-e7d41cebd541",
+    "typ": "bild",
+    "src": "media/leben/08-pixelated.jpg",
+    "poster": "",
+    "titel": "Pixelated",
+    "art": "",
+    "alt": "Pixelated.jpg"
+  },
+  {
+    "id": "77f7b3a1-353f-41e2-b556-cbece11d6bb4",
+    "typ": "bild",
+    "src": "media/leben/09-whatsapp-26-10-2026.jpg",
+    "poster": "",
+    "titel": "WhatsApp Image 2026-10-26 at 02.15.02",
+    "art": "",
+    "alt": "WhatsApp Image 2026-10-26 at 02.15.02.jpeg"
+  },
+  {
+    "id": "413558c7-549c-4569-a666-2316e32b2a0a",
+    "typ": "video",
+    "src": "media/leben/10-droste-effekt.mp4",
+    "poster": "media/leben/10-droste-effekt-poster.jpg",
+    "titel": "Droste Effekt",
+    "art": "",
+    "alt": "Droste Effekt.mov",
+    "loop": true
+  },
+  {
+    "id": "b4f8dc1e-b446-4484-aeae-cc740bc0eb17",
+    "typ": "bild",
+    "src": "media/leben/11-haende.jpg",
+    "poster": "",
+    "titel": "Haende",
+    "art": "",
+    "alt": "Haende.jpg"
+  },
+  {
+    "id": "68275f7c-0864-4d3f-8711-795d0bbd2a7b",
+    "typ": "video",
+    "src": "media/leben/12-kiss-pop-weiss.mp4",
+    "poster": "media/leben/12-kiss-pop-weiss-poster.jpg",
+    "titel": "Kiss_Pop_weiss",
+    "art": "",
+    "alt": "Kiss_Pop_weiss.mp4",
+    "loop": true
+  },
+  {
+    "id": "0248c76f-4212-4d08-ac4b-8fc863c0dae9",
+    "typ": "video",
+    "src": "media/leben/13-schmetterling-mit-ton.mp4",
+    "poster": "media/leben/13-schmetterling-mit-ton-poster.jpg",
+    "titel": "Schmetterling Mit Ton",
+    "art": "",
+    "alt": "Schmetterling Mit Ton.mp4",
+    "loop": true
+  },
+  {
+    "id": "d209be4e-0931-4557-a6a5-27e984126eae",
+    "typ": "video",
+    "src": "media/leben/14-gesichter-freud-und-leid.mp4",
+    "poster": "media/leben/14-gesichter-freud-und-leid-poster.jpg",
+    "titel": "Gesichter Freud und Leid",
+    "art": "",
+    "alt": "Gesichter Freud und Leid.mp4",
+    "loop": true
+  },
+  {
+    "id": "ee185b17-4203-486b-b4a4-af8cec1bdbe9",
+    "typ": "video",
+    "src": "media/leben/15-hamsterrad-v2.mp4",
+    "poster": "media/leben/15-hamsterrad-v2-poster.jpg",
+    "titel": "Hamsterrad V2",
+    "art": "",
+    "alt": "Hamsterrad V2.mp4",
+    "loop": true
+  },
+  {
+    "id": "f8c65cf4-9627-4010-90d9-c71dbc01496c",
+    "typ": "video",
+    "src": "media/leben/16-wasserhahn-mit-sound.mp4",
+    "poster": "media/leben/16-wasserhahn-mit-sound-poster.jpg",
+    "titel": "Wasserhahn Mit Sound",
+    "art": "",
+    "alt": "Wasserhahn Mit Sound.mp4",
+    "loop": true
+  },
+  {
+    "id": "9e48d9b4-5c0b-45a6-9f76-9f41fb3d10d3",
+    "typ": "video",
+    "src": "media/leben/17-ameisen-erde.mp4",
+    "poster": "media/leben/17-ameisen-erde-poster.jpg",
+    "titel": "Ameisen-Erde",
+    "art": "",
+    "alt": "Ameisen-Erde.mp4",
+    "loop": true
+  },
+  {
+    "id": "d69419ba-e1c1-440d-acfd-53be42bf5454",
+    "typ": "video",
+    "src": "media/leben/18-sehr-geehrte.mp4",
+    "poster": "media/leben/18-sehr-geehrte-poster.jpg",
+    "titel": "Sehr geehrte",
+    "art": "",
+    "alt": "Sehr geehrte.mov",
+    "loop": true
+  },
+  {
+    "id": "4f42ce51-2714-48d2-804c-c91b89a91db5",
+    "typ": "video",
+    "src": "media/leben/19-knochen.mp4",
+    "poster": "media/leben/19-knochen-poster.jpg",
+    "titel": "Knochen",
+    "art": "",
+    "alt": "Knochen.mp4",
+    "loop": true
+  },
+  {
+    "id": "9d307a09-26d6-4e75-9fa1-ee6bd2671b44",
+    "typ": "bild",
+    "src": "media/leben/20-whatsapp-12-09-2026.jpg",
     "poster": "",
     "titel": "WhatsApp Image 2026-09-12 at 12.35.01",
-    "art": "Bild",
+    "art": "",
     "alt": "WhatsApp Image 2026-09-12 at 12.35.01.jpeg"
   },
   {
-    "id": "a8432c0d-4013-4ab1-aad6-59ce8f44117c",
-    "typ": "bild",
-    "src": "media/ahmed-hossam-mEx29NUQPy4-unsplash.png",
-    "poster": "",
-    "titel": "ahmed-hossam-mEx29NUQPy4-unsplash",
-    "art": "Bild",
-    "alt": "ahmed-hossam-mEx29NUQPy4-unsplash.png"
-  },
-  {
-    "id": "d37562b0-f635-4108-b5ec-d583265c72db",
-    "typ": "bild",
-    "src": "media/WhatsApp_Image_2026-09-12_at_12.36.42_2_.jpeg",
-    "poster": "",
-    "titel": "WhatsApp Image 2026-09-12 at 12.36.42 (2)",
-    "art": "Bild",
-    "alt": "WhatsApp Image 2026-09-12 at 12.36.42 (2).jpeg"
+    "id": "d62ee4fc-000e-4355-a941-013c842c1b5d",
+    "typ": "video",
+    "src": "media/leben/21-tod-v2.mp4",
+    "poster": "media/leben/21-tod-v2-poster.jpg",
+    "titel": "Tod V2",
+    "art": "",
+    "alt": "Tod V2.mp4",
+    "loop": true
   }
 ]
