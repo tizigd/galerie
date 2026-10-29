@@ -48,7 +48,7 @@
   let dragItem = null;
   let dragTiefe = 0;
   let swipeStart = null;
-  let bedienungTimer = null;
+  const hoverFaehig = window.matchMedia("(hover: hover)").matches;
 
   const objectUrls = new Set();
   let dbPromise = null;
@@ -453,9 +453,15 @@
 
     if (aktiv) {
       buehneBereich.focus({ preventScroll: true });
+
+      if (hoverFaehig) {
+        setzeVideoControls(false);
+      }
+
       setStatus("Vollbild aktiv");
     } else {
       bedienungVerstecken();
+      setzeVideoControls(true);
       vollbildBtn.focus({ preventScroll: true });
       setStatus("Vollbild beendet");
     }
@@ -508,22 +514,24 @@
     if (!vollbildAktiv()) return;
 
     buehneBereich.classList.add("bedienung-sichtbar");
-    clearTimeout(bedienungTimer);
 
-    bedienungTimer = setTimeout(() => {
-      if (
-        steuerung.matches(":hover") ||
-        steuerung.contains(document.activeElement)
-      ) {
-        return;
-      }
-      buehneBereich.classList.remove("bedienung-sichtbar");
-    }, 2000);
+    if (hoverFaehig) {
+      setzeVideoControls(true);
+    }
   }
 
   function bedienungVerstecken() {
-    clearTimeout(bedienungTimer);
     buehneBereich.classList.remove("bedienung-sichtbar");
+
+    if (vollbildAktiv() && hoverFaehig) {
+      setzeVideoControls(false);
+    }
+  }
+
+  function setzeVideoControls(sichtbar) {
+    document.querySelectorAll(".slide video").forEach((video) => {
+      video.controls = sichtbar;
+    });
   }
 
   async function refresh() {
@@ -1213,14 +1221,29 @@
   });
 
   steuerung.addEventListener("mouseenter", () => {
-    if (!vollbildAktiv()) return;
-    clearTimeout(bedienungTimer);
-    buehneBereich.classList.add("bedienung-sichtbar");
+    bedienungZeigen();
   });
 
   steuerung.addEventListener("mouseleave", () => {
     if (!vollbildAktiv()) return;
     bedienungVerstecken();
+  });
+
+  /* Klick aufs Video: Play/Pause, wenn die native Leiste ausgeblendet ist */
+  buehne.addEventListener("click", (event) => {
+    if (!vollbildAktiv() || !hoverFaehig) return;
+
+    const video = event.target.closest("video");
+    if (!video || video.controls) return;
+
+    if (video.paused) {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    } else {
+      video.pause();
+    }
   });
 
   /* Tastatur */
