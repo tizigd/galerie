@@ -86,16 +86,6 @@
     "alt": "WhatsApp Image 2026-10-26 at 02.15.02.jpeg"
   },
   {
-    "id": "413558c7-549c-4569-a666-2316e32b2a0a",
-    "typ": "video",
-    "src": "media/leben/10-droste-effekt.mp4",
-    "poster": "media/leben/10-droste-effekt-poster.jpg",
-    "titel": "Droste Effekt",
-    "art": "",
-    "alt": "Droste Effekt.mov",
-    "loop": true
-  },
-  {
     "id": "b4f8dc1e-b446-4484-aeae-cc740bc0eb17",
     "typ": "bild",
     "src": "media/leben/11-haende.jpg",
@@ -115,6 +105,15 @@
     "loop": true
   },
   {
+    "id": "ecd88c38-af3f-4ab4-8122-f03a9aae67e2",
+    "typ": "bild",
+    "src": "media/WhatsApp_Image_2026-10-29_at_20.21.46.jpeg",
+    "poster": "",
+    "titel": "WhatsApp Image 2026-10-29 at 20.21.46",
+    "art": "Bild",
+    "alt": "WhatsApp Image 2026-10-29 at 20.21.46.jpeg"
+  },
+  {
     "id": "0248c76f-4212-4d08-ac4b-8fc863c0dae9",
     "typ": "video",
     "src": "media/leben/13-schmetterling-mit-ton.mp4",
@@ -122,6 +121,16 @@
     "titel": "Schmetterling Mit Ton",
     "art": "",
     "alt": "Schmetterling Mit Ton.mp4",
+    "loop": true
+  },
+  {
+    "id": "413558c7-549c-4569-a666-2316e32b2a0a",
+    "typ": "video",
+    "src": "media/leben/10-droste-effekt.mp4",
+    "poster": "media/leben/10-droste-effekt-poster.jpg",
+    "titel": "Droste Effekt",
+    "art": "",
+    "alt": "Droste Effekt.mov",
     "loop": true
   },
   {
