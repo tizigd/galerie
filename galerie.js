@@ -16,6 +16,7 @@
   const weiterBtn = document.getElementById("weiter");
   const weiterText = weiterBtn.querySelector(".weiter-text");
   const zurueckBtn = document.getElementById("zurueck");
+  const steuerung = document.querySelector(".steuerung");
   const teilenBtn = document.getElementById("teilen");
   const bearbeitenBtn = document.getElementById("bearbeiten");
 
@@ -47,6 +48,7 @@
   let dragItem = null;
   let dragTiefe = 0;
   let swipeStart = null;
+  let bedienungTimer = null;
 
   const objectUrls = new Set();
   let dbPromise = null;
@@ -352,7 +354,7 @@
      Slideshow
      ------------------------------------------------------------ */
 
-  function setzeSlide(neu, { updateHash = true } = {}) {
+  function setzeSlide(neu, { updateHash = true, hideControls = false } = {}) {
     if (!runtimeItems.length) {
       index = 0;
       aktuellEl.textContent = "00";
@@ -419,10 +421,14 @@
     if (vollbildAktiv()) {
       buehneBereich.focus({ preventScroll: true });
     }
+
+    if (hideControls) {
+      bedienungVerstecken();
+    }
   }
 
-  const weiter = () => setzeSlide(index + 1);
-  const zurueck = () => setzeSlide(index - 1);
+  const weiter = (optionen) => setzeSlide(index + 1, optionen);
+  const zurueck = (optionen) => setzeSlide(index - 1, optionen);
 
   /* ------------------------------------------------------------
      Vollbild
@@ -452,7 +458,7 @@
       buehneBereich.focus({ preventScroll: true });
       setStatus("Vollbild aktiv");
     } else {
-      buehneBereich.classList.remove("bedienung-sichtbar");
+      bedienungVerstecken();
       vollbildBtn.focus({ preventScroll: true });
       setStatus("Vollbild beendet");
     }
@@ -499,6 +505,28 @@
 
     pseudoVollbild = true;
     updateVollbildZustand();
+  }
+
+  function bedienungZeigen() {
+    if (!vollbildAktiv()) return;
+
+    buehneBereich.classList.add("bedienung-sichtbar");
+    clearTimeout(bedienungTimer);
+
+    bedienungTimer = setTimeout(() => {
+      if (
+        steuerung.matches(":hover") ||
+        steuerung.contains(document.activeElement)
+      ) {
+        return;
+      }
+      buehneBereich.classList.remove("bedienung-sichtbar");
+    }, 2000);
+  }
+
+  function bedienungVerstecken() {
+    clearTimeout(bedienungTimer);
+    buehneBereich.classList.remove("bedienung-sichtbar");
   }
 
   async function refresh() {
@@ -1065,8 +1093,8 @@
 
   bearbeitenBtn.addEventListener("click", openEditor);
   editorSchliessen.addEventListener("click", closeEditor);
-  weiterBtn.addEventListener("click", weiter);
-  zurueckBtn.addEventListener("click", zurueck);
+  weiterBtn.addEventListener("click", () => weiter());
+  zurueckBtn.addEventListener("click", () => zurueck());
   vollbildBtn.addEventListener("click", vollbildUmschalten);
   document.addEventListener("fullscreenchange", updateVollbildZustand);
   document.addEventListener("webkitfullscreenchange", updateVollbildZustand);
@@ -1158,9 +1186,9 @@
 
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
       if (dx < 0) {
-        weiter();
+        weiter({ hideControls: true });
       } else {
-        zurueck();
+        zurueck({ hideControls: true });
       }
     }
   });
@@ -1175,11 +1203,27 @@
 
     const rect = buehneBereich.getBoundingClientRect();
     const naheUnten = event.clientY > rect.bottom - 140;
-    buehneBereich.classList.toggle("bedienung-sichtbar", naheUnten);
+
+    if (naheUnten) {
+      bedienungZeigen();
+    } else {
+      bedienungVerstecken();
+    }
   });
 
   buehneBereich.addEventListener("mouseleave", () => {
-    buehneBereich.classList.remove("bedienung-sichtbar");
+    bedienungVerstecken();
+  });
+
+  steuerung.addEventListener("mouseenter", () => {
+    if (!vollbildAktiv()) return;
+    clearTimeout(bedienungTimer);
+    buehneBereich.classList.add("bedienung-sichtbar");
+  });
+
+  steuerung.addEventListener("mouseleave", () => {
+    if (!vollbildAktiv()) return;
+    bedienungVerstecken();
   });
 
   /* Tastatur */
@@ -1217,13 +1261,13 @@
 
     if (event.key === "Enter" && !istBedienelement) {
       event.preventDefault();
-      weiter();
+      weiter({ hideControls: true });
     } else if (event.key === "ArrowRight" && !istVideo) {
       event.preventDefault();
-      weiter();
+      weiter({ hideControls: true });
     } else if (event.key === "ArrowLeft" && !istVideo) {
       event.preventDefault();
-      zurueck();
+      zurueck({ hideControls: true });
     }
   });
 
