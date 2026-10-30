@@ -203,6 +203,26 @@
     "alt": "WhatsApp Image 2026-10-28 at 23.55.51.jpeg"
   },
   {
+    "id": "25fc565e-de03-4021-9204-37a9e5447142",
+    "typ": "video",
+    "src": "media/leben/22-hochzeit-haende.mp4",
+    "poster": "media/leben/22-hochzeit-haende-poster.jpg",
+    "titel": "Hochzeit Hände",
+    "art": "",
+    "alt": "Hochzeit Hände.mp4",
+    "loop": true
+  },
+  {
+    "id": "9c6b67e4-2004-4b4f-a57e-24a4d56da140",
+    "typ": "video",
+    "src": "media/leben/23-schatten-hase.mp4",
+    "poster": "media/leben/23-schatten-hase-poster.jpg",
+    "titel": "Schatten Hase",
+    "art": "",
+    "alt": "Schatten Hase.mp4",
+    "loop": true
+  },
+  {
     "id": "d62ee4fc-000e-4355-a941-013c842c1b5d",
     "typ": "video",
     "src": "media/leben/21-tod-v2.mp4",
