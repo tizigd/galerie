@@ -223,6 +223,26 @@
     "loop": true
   },
   {
+    "id": "b204bd81-2444-40d6-93d4-fae8a3f98878",
+    "typ": "video",
+    "src": "media/leben/24-faeden.mp4",
+    "poster": "media/leben/24-faeden-poster.jpg",
+    "titel": "Fäden",
+    "art": "",
+    "alt": "Fäden.mp4",
+    "loop": true
+  },
+  {
+    "id": "63f3327f-92a4-4358-9955-79e55be74222",
+    "typ": "video",
+    "src": "media/leben/25-traeum.mp4",
+    "poster": "media/leben/25-traeum-poster.jpg",
+    "titel": "Träum",
+    "art": "",
+    "alt": "Träum.mp4",
+    "loop": true
+  },
+  {
     "id": "d62ee4fc-000e-4355-a941-013c842c1b5d",
     "typ": "video",
     "src": "media/leben/21-tod-v2.mp4",
