@@ -20,13 +20,23 @@
     "loop": true
   },
   {
-    "id": "dacae738-576f-4297-b288-f6204169fd85",
+    "id": "b204bd81-2444-40d6-93d4-fae8a3f98878",
     "typ": "video",
-    "src": "media/leben/03-img-0478.mp4",
-    "poster": "media/leben/03-img-0478-poster.jpg",
-    "titel": "IMG_0478 2",
+    "src": "media/leben/24-faeden.mp4",
+    "poster": "media/leben/24-faeden-poster.jpg",
+    "titel": "Fäden",
     "art": "",
-    "alt": "IMG_0478 2.mp4",
+    "alt": "Fäden.mp4",
+    "loop": true
+  },
+  {
+    "id": "9c6b67e4-2004-4b4f-a57e-24a4d56da140",
+    "typ": "video",
+    "src": "media/leben/23-schatten-hase.mp4",
+    "poster": "media/leben/23-schatten-hase-poster.jpg",
+    "titel": "Schatten Hase",
+    "art": "",
+    "alt": "Schatten Hase.mp4",
     "loop": true
   },
   {
@@ -174,16 +184,6 @@
     "loop": true
   },
   {
-    "id": "d69419ba-e1c1-440d-acfd-53be42bf5454",
-    "typ": "video",
-    "src": "media/leben/18-sehr-geehrte.mp4",
-    "poster": "media/leben/18-sehr-geehrte-poster.jpg",
-    "titel": "Sehr geehrte",
-    "art": "",
-    "alt": "Sehr geehrte.mov",
-    "loop": true
-  },
-  {
     "id": "4f42ce51-2714-48d2-804c-c91b89a91db5",
     "typ": "video",
     "src": "media/leben/19-knochen.mp4",
@@ -201,36 +201,6 @@
     "titel": "WhatsApp Image 2026-10-28 at 23.55.51",
     "art": "Bild",
     "alt": "WhatsApp Image 2026-10-28 at 23.55.51.jpeg"
-  },
-  {
-    "id": "25fc565e-de03-4021-9204-37a9e5447142",
-    "typ": "video",
-    "src": "media/leben/22-hochzeit-haende.mp4",
-    "poster": "media/leben/22-hochzeit-haende-poster.jpg",
-    "titel": "Hochzeit Hände",
-    "art": "",
-    "alt": "Hochzeit Hände.mp4",
-    "loop": true
-  },
-  {
-    "id": "9c6b67e4-2004-4b4f-a57e-24a4d56da140",
-    "typ": "video",
-    "src": "media/leben/23-schatten-hase.mp4",
-    "poster": "media/leben/23-schatten-hase-poster.jpg",
-    "titel": "Schatten Hase",
-    "art": "",
-    "alt": "Schatten Hase.mp4",
-    "loop": true
-  },
-  {
-    "id": "b204bd81-2444-40d6-93d4-fae8a3f98878",
-    "typ": "video",
-    "src": "media/leben/24-faeden.mp4",
-    "poster": "media/leben/24-faeden-poster.jpg",
-    "titel": "Fäden",
-    "art": "",
-    "alt": "Fäden.mp4",
-    "loop": true
   },
   {
     "id": "63f3327f-92a4-4358-9955-79e55be74222",
